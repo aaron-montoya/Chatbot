@@ -12,7 +12,7 @@ public class PopupDisplay
 	public PopupDisplay()
 	{
 		icon = new ImageIcon(getClass().getResource("images/ChatPanda.png"));
-		windowTitle = "Chatbot says...";
+		windowTitle = "ChatPanda says...";
 	}
 	
 	public void displayText(String message)
