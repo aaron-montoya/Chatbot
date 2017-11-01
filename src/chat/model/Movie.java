@@ -20,7 +20,7 @@ public class Movie
 		this.review = null;
 		this.length = -99;
 		this.releaseDate = null;
-		this.starScore = Double.NaN;
+		this.starScore = 1;
 	}
 
 	public String getTitle()

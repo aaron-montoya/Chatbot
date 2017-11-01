@@ -53,7 +53,12 @@ public class Chatbot
 		shoppingList.add("protein");
 		shoppingList.add("malk");
 		shoppingList.add("yellow");
-		shoppingList.add("Daily Dose of Memes");
+		shoppingList.add("bop it");
+		shoppingList.add("death sticks");
+		shoppingList.add("melons");
+		shoppingList.add("love");
+		shoppingList.add("chicknen mcchugnets");
+		shoppingList.add("snail bait");
 	}
 	
 	private void buildCuteAnimals()
@@ -71,7 +76,28 @@ public class Chatbot
 	
 	public String processConversation(String input)
 	{
-		return null;
+		String chatbotResponse = "";
+		chatbotResponse = "You said:" + "\n" + input + "\n";
+		
+		chatbotResponse += buildChatbotResponse();
+		
+		return chatbotResponse;
+	}
+	
+	private String buildChatbotResponse()
+	{
+		String response = "I ";
+		int random = (int) (Math.random() * verbs.length);
+		
+		response += verbs[random];
+		
+		random = (int) (Math.random() * topics.length);
+		response += " " + topics[random] + ".\n";
+		
+		random = (int) (Math.random() * questions.length);
+		response += questions[random];
+		
+		return response;
 	}
 	
 	public boolean lengthChecker(String input)
