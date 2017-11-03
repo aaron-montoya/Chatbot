@@ -16,11 +16,15 @@ public class ChatbotController
 	
 	public void start()
 	{
+		//Makes a string called response that gets what the user typed in
 		String response = display.getResponse("What do you want to talk about?");
 		
+		//If the response is longer than 2 and isn't quit, keep looping
 		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
 		{
+			//Call the popupChat method and pass the response to it
 			response = popupChat(response);
+			//Display the final response
 			response = display.getResponse(response);
 		}
 	}
