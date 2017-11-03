@@ -35,6 +35,9 @@ public class Chatbot
 		buildVerbs();
 		buildTopics();
 		buildQuestions();
+		buildMovieList();
+		buildShoppingList();
+		buildCuteAnimals();
 	}
 	
 	private void buildVerbs()
@@ -81,7 +84,7 @@ public class Chatbot
 		cuteAnimalMemes.add("pupper");
 		cuteAnimalMemes.add("otter");
 		cuteAnimalMemes.add("kittie");
-		cuteAnimalMemes.add("floofer");
+		cuteAnimalMemes.add("FLOOFER");
 	}
 	
 	private void buildQuestions()
@@ -162,7 +165,16 @@ public class Chatbot
 	
 	public boolean shoppingListChecker(String shoppingItem)
 	{
-		return false;
+		boolean valid_list = false;
+		for(int index = 0; index < shoppingList.size(); index++)
+		{
+			if (shoppingItem.contains(shoppingList.get(index)))
+			{
+				valid_list = true;
+			}
+		}
+		
+		return valid_list;
 	}
 	
 	public boolean movieTitleChecker(String title)
