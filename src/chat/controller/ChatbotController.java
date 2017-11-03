@@ -16,7 +16,7 @@ public class ChatbotController
 	
 	public void start()
 	{
-		String response = display.getResponse("What do you want to talk abou?");
+		String response = display.getResponse("What do you want to talk about?");
 		
 		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
 		{
