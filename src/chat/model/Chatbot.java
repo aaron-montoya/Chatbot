@@ -166,7 +166,18 @@ public class Chatbot
 	
 	public boolean cuteAnimalMemeChecker(String input)
 	{
-		return false;
+		boolean correct_memes = false;
+		
+		if(input.contains("pupper") || input.contains("otter") || input.contains("kittie"))
+		{
+			correct_memes = true;
+		}
+		else if(input.contains("pepe"))
+		{
+			correct_memes = false;
+		}
+		
+		return correct_memes;
 	}
 	
 	public boolean shoppingListChecker(String shoppingItem)
@@ -204,7 +215,14 @@ public class Chatbot
 
 	public boolean keyboardMashChecker(String sample)
 	{
-		return false;
+		boolean pass = false;
+		
+		if(sample.contains("S.D.F.") || sample.contains("derf"))
+		{
+			pass = true;
+		}
+		
+		return pass;
 	}
 	
 	public List<Movie> getMovieList()
