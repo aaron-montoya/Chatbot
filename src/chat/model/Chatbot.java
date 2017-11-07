@@ -150,7 +150,13 @@ public class Chatbot
 	
 	public boolean userNameChecker(String input)
 	{
-		return false;
+		boolean valid_username = false;
+		if(input != null && input.length() > 0 && input.indexOf("@") == 0 && !input.contains("@@"))
+		{
+			valid_username = true;
+		}
+		return valid_username;
+	
 	}
 	
 	public boolean contentChecker(String contentCheck)
