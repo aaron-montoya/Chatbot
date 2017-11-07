@@ -217,9 +217,13 @@ public class Chatbot
 	{
 		boolean pass = false;
 		
-		if(sample.contains("S.D.F.") || sample.contains("derf"))
+		if(sample.contains("sdf") || sample.contains("SDF") || sample.contains("dfg") || sample.contains("cvb") || sample.contains(",./") || sample.contains("kjh") || sample.contains("DFG") || sample.contains("CVB") || sample.contains("KJH"))
 		{
 			pass = true;
+		}
+		else if(sample.contains("S.D.F.") || sample.contains("derf"))
+		{
+			pass = false;
 		}
 		
 		return pass;
