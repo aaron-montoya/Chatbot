@@ -101,6 +101,11 @@ public class Chatbot
 		questions[9] = "What is your favorite song?";
 	}
 	
+	/**
+	 * Tells what the user said, then calls buildChatbotResponse
+	 * @param input What the user said
+	 * @return Returns a String of what the user said, plus what was added from buildChatbotResponse
+	 */
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
@@ -111,6 +116,10 @@ public class Chatbot
 		return chatbotResponse;
 	}
 	
+	/**
+	 * Uses random numbers to build a response from a verb, topic and a question. Also has a fifty percent chance of saying something from the shopping list
+	 * @return Returns a sentence
+	 */
 	private String buildChatbotResponse()
 	{
 		String response = "I ";
@@ -124,6 +133,13 @@ public class Chatbot
 		random = (int) (Math.random() * questions.length);
 		response += questions[random];
 		
+		random = (int) (Math.random() * 2);
+		
+		if (random % 2 == 0)
+		{
+			random = (int) (Math.random() * shoppingList.size());
+			response += "\n" + shoppingList.get(random) + " is something I need to get from the store";
+		}
 		return response;
 	}
 	
@@ -145,7 +161,18 @@ public class Chatbot
 	
 	public boolean htmlTagChecker(String input)
 	{
-		return false;
+		boolean valid_tag = false;
+		
+		if(input.contains("<B>  </B>") || input.contains("<I> sdadas </i>") || input.contains("<P>") || input.contains("<A HREF=\"sdfs.html\"> </a>"))
+		{
+			valid_tag = true;
+		}
+		else if(input.contains("<>") || input.contains("< >") || input.contains("<B>  ") || input.contains("<A HREF> </a>"))
+		{
+			valid_tag = false;
+		}
+		
+		return valid_tag;
 	}
 	
 	public boolean userNameChecker(String input)
