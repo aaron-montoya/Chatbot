@@ -18,6 +18,10 @@ public class Chatbot
 	private String intro;
 	private LocalTime currentTime;
 	
+	/**
+	 * Chatbot constructor, declares all of the data members and calls the build methods
+	 * @param username What the user entered
+	 */
 	public Chatbot(String username)
 	{
 		this.movieList = new ArrayList<Movie>();
@@ -269,16 +273,31 @@ public class Chatbot
 		return valid_list;
 	}
 	
+	/**
+	 * 
+	 * @param title
+	 * @return
+	 */
 	public boolean movieTitleChecker(String title)
 	{
 		return false;
 	}
 	
+	/**
+	 * 
+	 * @param genre
+	 * @return
+	 */
 	public boolean movieGenreChecker(String genre)
 	{
 		return false;
 	}
 
+	/**
+	 * Checks if the user typed quit
+	 * @param exitString What the user typed
+	 * @return Returns true if the user typed quit
+	 */
 	public boolean quitChecker(String exitString)
 	{
 		if (exitString.equalsIgnoreCase("quit"))
@@ -288,6 +307,11 @@ public class Chatbot
 		return false;
 	}
 
+	/**
+	 * Make sure that the user isn't just keyboard mashing
+	 * @param sample What the user typed
+	 * @return Returns true if it contains keyboard mash
+	 */
 	public boolean keyboardMashChecker(String sample)
 	{
 		boolean pass = false;
@@ -304,66 +328,118 @@ public class Chatbot
 		return pass;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Movie> getMovieList()
 	{
 		return movieList;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public List<String> getShoppingList()
 	{
 		return shoppingList;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public List<String> getCuteAnimalMemes()
 	{
 		return cuteAnimalMemes;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String [] getQuestions()
 	{
 		return questions;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String [] getVerbs()
 	{
 		return verbs;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String [] getTopics()
 	{
 		return topics;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String [] getFollowUps()
 	{
 		return followUps;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String getUsername()
 	{
 		return username;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getContent()
 	{
 		return content;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String getIntro()
 	{
 		return intro;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public LocalTime getCurrentTime()
 	{
 		return currentTime;
 	}
 	
+	/**
+	 * 
+	 * @param username
+	 */
 	public void setUsername(String username)
 	{
 		this.username = username;
 	}
 	
+	/**
+	 * 
+	 * @param content
+	 */
 	public void setContent(String content)
 	{
 		this.content = content;
