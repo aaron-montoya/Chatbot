@@ -4,12 +4,16 @@ import chat.model.Chatbot;
 import chat.view.ChatFrame;
 import chat.view.PopupDisplay;
 
+
 public class ChatbotController
 {
 	private Chatbot chatbot;
 	private PopupDisplay display;
 	private ChatFrame appFrame;
 	
+	/**
+	 * Makes a chatbot, popupdisplay and a chatframe
+	 */
 	public ChatbotController()
 	{
 		chatbot = new Chatbot("Aaron Montoya");
@@ -17,6 +21,9 @@ public class ChatbotController
 		appFrame = new ChatFrame(this);
 	}
 	
+	/**
+	 * Asks what the user wants to talk about
+	 */
 	public void start()
 	{
 		//Makes a string called response that gets what the user typed in
@@ -36,6 +43,11 @@ public class ChatbotController
 	//{	
 	//}
 	
+	/**
+	 * 
+	 * @param chat What the user said
+	 * @return Returns chatbotSays and processConversation together
+	 */
 	private String popupChat(String chat)
 	{
 		String chatbotSays = "";

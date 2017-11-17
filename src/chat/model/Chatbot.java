@@ -40,6 +40,9 @@ public class Chatbot
 		buildCuteAnimals();
 	}
 	
+	/**
+	 * Build the verb list
+	 */
 	private void buildVerbs()
 	{
 		verbs[0] = "like";
@@ -48,6 +51,9 @@ public class Chatbot
 		verbs[3] = "am thinking about";
 	}
 	
+	/**
+	 * Build all the topics
+	 */
 	private void buildTopics()
 	{
 		topics[0] = "Sports";
@@ -59,11 +65,17 @@ public class Chatbot
 		topics[6] = "News";
 	}
 
+	/**
+	 * Build the list of movies
+	 */
 	private void buildMovieList()
 	{
 		
 	}
 	
+	/**
+	 * Build the shopping list
+	 */
 	private void buildShoppingList()
 	{
 		shoppingList.add("snacks");
@@ -79,6 +91,9 @@ public class Chatbot
 		shoppingList.add("snail bait");
 	}
 	
+	/**
+	 * Build the list of animals
+	 */
 	private void buildCuteAnimals()
 	{
 		cuteAnimalMemes.add("pupper");
@@ -87,6 +102,9 @@ public class Chatbot
 		cuteAnimalMemes.add("FLOOFER");
 	}
 	
+	/**
+	 * Build the list of questions
+	 */
 	private void buildQuestions()
 	{
 		questions[0] = "What about you?";
@@ -143,6 +161,11 @@ public class Chatbot
 		return response;
 	}
 	
+	/**
+	 * Checks the length of the users response
+	 * @param input What the user said
+	 * @return Returns true if the message is long enough
+	 */
 	public boolean lengthChecker(String input)
 	{
 		boolean valid_length = false;
@@ -159,6 +182,11 @@ public class Chatbot
 		return valid_length;
 	}
 	
+	/**
+	 * Checks to make sure the HTML tags are correct
+	 * @param input What the user said
+	 * @return Returns true if it's a valid HTML tag
+	 */
 	public boolean htmlTagChecker(String input)
 	{
 		boolean valid_tag = false;
@@ -175,6 +203,11 @@ public class Chatbot
 		return valid_tag;
 	}
 	
+	/**
+	 * Make sure that the username is valid
+	 * @param input What the user said
+	 * @return Returns true if it's a valid username
+	 */
 	public boolean userNameChecker(String input)
 	{
 		boolean valid_username = false;
@@ -186,11 +219,21 @@ public class Chatbot
 	
 	}
 	
+	/**
+	 * 
+	 * @param contentCheck
+	 * @return
+	 */
 	public boolean contentChecker(String contentCheck)
 	{
 		return false;
 	}
 	
+	/**
+	 * Checks to make sure that the correct animal memes are there
+	 * @param input What the user said
+	 * @return Returns true if you have the correct memes
+	 */
 	public boolean cuteAnimalMemeChecker(String input)
 	{
 		boolean correct_memes = false;
@@ -207,6 +250,11 @@ public class Chatbot
 		return correct_memes;
 	}
 	
+	/**
+	 * Makes sure that you have certain items in your shopping list
+	 * @param shoppingItem The item from the shopping list
+	 * @return Returns true if it doesn't have any items that shouldn't have.
+	 */
 	public boolean shoppingListChecker(String shoppingItem)
 	{
 		boolean valid_list = false;
