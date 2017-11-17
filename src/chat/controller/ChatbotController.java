@@ -39,9 +39,10 @@ public class ChatbotController
 //		}
 	}
 	
-	//public String interactWithChatbot(String input)
-	//{	
-	//}
+	public String interactWithChatbot(String input)
+	{	
+		return input;
+	}
 	
 	/**
 	 * 
