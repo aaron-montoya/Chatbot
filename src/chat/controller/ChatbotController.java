@@ -4,7 +4,11 @@ import chat.model.Chatbot;
 import chat.view.ChatFrame;
 import chat.view.PopupDisplay;
 
-
+/**
+ * Manages the Chatbot application including the Model and Frame of the View package
+ * @author Aaron Montoya
+ * @version 11.21.17 Added Frame 1.3
+ */
 public class ChatbotController
 {
 	private Chatbot chatbot;
@@ -26,22 +30,33 @@ public class ChatbotController
 	 */
 	public void start()
 	{
-		//Makes a string called response that gets what the user typed in
-		String response = display.getResponse("What do you want to talk about?");
+		display.displayText("Welcome to ChatPanda™");
 		
-		//If the response is longer than 2 and isn't quit, keep looping
 //		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
 //		{
-//			//Call the popupChat method and pass the response to it
 //			response = popupChat(response);
-//			//Display the final response
 //			response = display.getResponse(response);
 //		}
 	}
 	
 	public String interactWithChatbot(String input)
 	{	
-		return input;
+		String chatbotSays = "";
+		
+		if(chatbot.quitChecker(input))
+		{
+			close();
+		}
+		
+		chatbotSays += chatbot.processConversation(input);
+		
+		return chatbotSays;
+	}
+	
+	private void close()
+	{
+		display.displayText("Goodbye");
+		System.exit(0);
 	}
 	
 	/**

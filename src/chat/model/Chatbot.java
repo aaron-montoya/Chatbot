@@ -111,16 +111,16 @@ public class Chatbot
 	 */
 	private void buildQuestions()
 	{
-		questions[0] = "What about you?";
-		questions[1] = "What's your favorite sport?";
-		questions[2] = "How are you today?";
-		questions[3] = "Do you like food?";
-		questions[4] = "What's your favorite movie?";
-		questions[5] = "Do you have a favorite book?";
-		questions[6] = "How 'bout dat news?";
-		questions[7] = "Do you trust me?";
-		questions[8] = "What's your favorite dog?";
-		questions[9] = "What is your favorite song?";
+		questions[0] = "What about you? ";
+		questions[1] = "What's your favorite sport? ";
+		questions[2] = "How are you today? ";
+		questions[3] = "Do you like food? ";
+		questions[4] = "What's your favorite movie? ";
+		questions[5] = "Do you have a favorite book? ";
+		questions[6] = "How 'bout dat news? ";
+		questions[7] = "Do you trust me? ";
+		questions[8] = "What's your favorite dog? ";
+		questions[9] = "What is your favorite song? ";
 	}
 	
 	/**
@@ -280,7 +280,14 @@ public class Chatbot
 	 */
 	public boolean movieTitleChecker(String title)
 	{
-		return false;
+		boolean valid_title = false;
+		
+		if(!title.equals("") && title.equals("Spiderman") || title.equals("Hidden Figures"))
+		{
+			valid_title = true;
+		}
+		
+		return valid_title;
 	}
 	
 	/**
@@ -290,7 +297,18 @@ public class Chatbot
 	 */
 	public boolean movieGenreChecker(String genre)
 	{
-		return false;
+		boolean valid_genre = false;
+		
+		if(genre.equals(""))
+		{
+			valid_genre = false;
+		}
+		else if(genre.equals("Documentary") || genre.equals("Thriller"))
+		{
+			valid_genre = true;
+		}
+		
+		return valid_genre;
 	}
 
 	/**

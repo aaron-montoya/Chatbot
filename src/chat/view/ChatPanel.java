@@ -17,6 +17,7 @@ public class ChatPanel extends JPanel
 	private JTextField inputField;
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
+	private JButton checkerButton;
 	
 	public ChatPanel(ChatbotController appController)
 	{
@@ -24,11 +25,13 @@ public class ChatPanel extends JPanel
 		this.appController= appController;
 		
 		//Initialize GUI data members
-		chatButton = new JButton("chat");
+		chatButton = new JButton("Chat");
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
-
+		checkerButton = new JButton("Checker");
+		appLayout.putConstraint(SpringLayout.SOUTH, checkerButton, -6, SpringLayout.NORTH, chatButton);
+		appLayout.putConstraint(SpringLayout.EAST, checkerButton, -10, SpringLayout.EAST, this);
 		
 		setupPanel();
 		setupLayout();
@@ -42,6 +45,7 @@ public class ChatPanel extends JPanel
 		this.add(chatButton);
 		this.add(inputField);
 		this.add(chatArea);
+		this.add(checkerButton);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 	}
@@ -68,6 +72,14 @@ public class ChatPanel extends JPanel
 				String displayText = appController.interactWithChatbot(userText);
 				chatArea.append(displayText);
 				inputField.setText("");
+			}
+		});
+		
+		chatButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				
 			}
 		});
 	}
