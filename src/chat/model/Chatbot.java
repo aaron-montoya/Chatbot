@@ -42,6 +42,16 @@ public class Chatbot
 		buildMovieList();
 		buildShoppingList();
 		buildCuteAnimals();
+		buildFollowUps();
+	}
+	
+	private void buildFollowUps()
+	{
+		followUps[0] = "";
+		followUps[1] = "";
+		followUps[2] = "";
+		followUps[3] = "";
+		followUps[4] = "";
 	}
 	
 	/**
@@ -161,6 +171,23 @@ public class Chatbot
 		{
 			random = (int) (Math.random() * shoppingList.size());
 			response += "\n" + shoppingList.get(random) + " is something I need to get from the store";
+		}
+		
+		int followup = (int) (Math.random() * 5);
+		
+		switch (followup)
+		{
+		case 0:
+			response += followUps[0] + "\n";
+			break;
+		case 3:
+			response += followUps[1] + "\n";
+		case 1:
+			response += followUps[2] + "\n";
+		default:
+			response += followUps[4] + "\n";
+			response += followUps[3] + "\n";
+			break;
 		}
 		return response;
 	}
