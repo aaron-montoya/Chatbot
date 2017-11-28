@@ -47,11 +47,11 @@ public class Chatbot
 	
 	private void buildFollowUps()
 	{
-		followUps[0] = "";
-		followUps[1] = "";
-		followUps[2] = "";
-		followUps[3] = "";
-		followUps[4] = "";
+//		followUps[0] = "";
+//		followUps[1] = "";
+//		followUps[2] = "";
+//		followUps[3] = "";
+//		followUps[4] = "";
 	}
 	
 	/**
@@ -221,15 +221,21 @@ public class Chatbot
 	public boolean htmlTagChecker(String input)
 	{
 		boolean valid_tag = false;
+		input.toUpperCase();
 		
-		if(input.contains("<B>  </B>") || input.contains("<I> sdadas </i>") || input.contains("<P>") || input.contains("<A HREF=\"sdfs.html\"> </a>"))
-		{
-			valid_tag = true;
-		}
-		else if(input.contains("<>") || input.contains("< >") || input.contains("<B>  ") || input.contains("<A HREF> </a>"))
+		if(!input.contains("<") && !input.contains(">"))
 		{
 			valid_tag = false;
 		}
+		else if(input.contains("<>") || input.contains("< >"))
+		{
+			valid_tag = false;
+		}
+		else if(input.indexOf("<B>") < input.indexOf("</B>"))
+		{
+			valid_tag = true;
+		}
+		
 		
 		return valid_tag;
 	}
