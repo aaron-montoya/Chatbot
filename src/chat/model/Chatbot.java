@@ -222,6 +222,11 @@ public class Chatbot
 	{
 		boolean valid_tag = false;
 		input.toUpperCase();
+		int firstOpen = input.indexOf("<");
+		int firstClose = input.indexOf(">", firstOpen);
+		int secondOpen = -9;
+		int secondClose = -9;
+		String tagText = "";
 		
 		if(!input.contains("<") && !input.contains(">"))
 		{
@@ -231,9 +236,19 @@ public class Chatbot
 		{
 			valid_tag = false;
 		}
-		else if(input.indexOf("<B>") < input.indexOf("</B>"))
+		else if(input.indexOf("<") < input.indexOf("</"))
 		{
 			valid_tag = true;
+		}
+		
+		if(input.contains("<P>") || input.contains("<br>"))
+		{
+			valid_tag = true;
+		}
+		else if(firstClose > firstOpen)
+		{
+			tagText = input.substring(firstOpen + 1, firstClose);
+			secondOpen = input.indexOf("</" + tagText, firstClose);
 		}
 		
 		
