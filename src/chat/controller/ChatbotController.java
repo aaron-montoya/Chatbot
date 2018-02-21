@@ -23,6 +23,13 @@ public class ChatbotController
 		chatbot = new Chatbot("Aaron Montoya");
 		display = new PopupDisplay();
 		appFrame = new ChatFrame(this);
+		getChatbot();
+		getDisplay();
+	}
+	
+	public void handleErrors(Exception error)
+	{
+		display.displayText(error.getMessage());
 	}
 	
 	/**
@@ -37,6 +44,16 @@ public class ChatbotController
 //			response = popupChat(response);
 //			response = display.getResponse(response);
 //		}
+	}
+	
+	public void getChatbot()
+	{
+		
+	}
+	
+	public void getDisplay()
+	{
+		
 	}
 	
 	public String interactWithChatbot(String input)
