@@ -46,6 +46,8 @@ public class ChatbotController
 	public void start()
 	{
 		display.displayText("Welcome to ChatPanda™");
+		String results = IOController.loadFromFile(this, "commonWords.txt");
+		IOController.saveToFile(this, results, "");
 		
 //		while (chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
 //		{
