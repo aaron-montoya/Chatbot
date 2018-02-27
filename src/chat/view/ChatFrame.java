@@ -20,7 +20,7 @@ public class ChatFrame extends JFrame
 	{
 		this.setContentPane(appPane);
 		this.setTitle("Chatting with ChatPanda");
-		this.setSize(500, 500);
+		this.setSize(635, 360);
 		this.setVisible(true);
 	}
 	

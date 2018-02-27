@@ -35,6 +35,11 @@ public class ChatbotController
 		display.displayText(error.getMessage());
 	}
 	
+	public void tweet(String text)
+	{
+		myTwitter.sendTweet(text);
+	}
+	
 	/**
 	 * Asks what the user wants to talk about
 	 */
