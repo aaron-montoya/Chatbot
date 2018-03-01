@@ -1,6 +1,7 @@
 package chat.model;
 
 import chat.controller.ChatbotController;
+import chat.controller.IOController;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.Twitter;
@@ -144,9 +145,8 @@ public class CTECTwitter
 			boringWords[index] = wordScanner.nextLine();
 		}
 		
-		wordScanner.close()
+		wordScanner.close();
 		return boringWords;
-	}
 	}
 }
 
