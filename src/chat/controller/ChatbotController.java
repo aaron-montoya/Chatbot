@@ -100,8 +100,6 @@ public class ChatbotController
 		return chatbotSays;
 	}
 	
-	
-	
 	public String useCheckers(String text)
 	{
 		String response = "";
@@ -119,9 +117,10 @@ public class ChatbotController
 		return response;
 	}
 	
-	
-	
-	
+	public String search(String text)
+	{
+		return myTwitter.getMostCommonWord(text);
+	}
 	
 	
 	
