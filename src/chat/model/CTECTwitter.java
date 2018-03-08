@@ -16,6 +16,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.text.DecimalFormat;
+import java.util.HashMap;
 
 public class CTECTwitter
 {
@@ -24,6 +25,7 @@ public class CTECTwitter
 	private List<Status> searchedTweets;
 	private List<String> tweetedWords;
 	private long totalWordCount;
+	private HashMap<String, Integer> wordsAndCount;
 	
 	public CTECTwitter(ChatbotController appController)
 	{
@@ -31,6 +33,7 @@ public class CTECTwitter
 		this.searchedTweets = new ArrayList<Status>();
 		this.tweetedWords = new ArrayList<String>();
 		this.chatbotTwitter = TwitterFactory.getSingleton();
+		this.wordsAndCount = new HashMap<String, Integer>();
 		this.totalWordCount = 0;
 	}
 	
@@ -58,6 +61,7 @@ public class CTECTwitter
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
 		String [] boring = createIgnoredWordArray();
+		trimTheBoringWords(boring);
 		
 		return mostCommon;
 	}
@@ -99,6 +103,7 @@ public class CTECTwitter
 		for(Status currentStatus : searchedTweets)
 		{
 			String tweetText = currentStatus.getText();
+			tweetText = tweetText.replace("\n", " ");
 			String [] tweetWords = tweetText.split(" ");
 			for(int index = 0; index < tweetWords.length; index++)
 			{
@@ -147,6 +152,21 @@ public class CTECTwitter
 		
 		wordScanner.close();
 		return boringWords;
+	}
+	
+	private void trimTheBoringWords(String [] boringWords)
+	{
+		for(int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			for(int removeIndex = 0; removeIndex < boringWords.length; removeIndex++)
+			{
+				if(tweetedWords.get(index).equals(boringWords[removeIndex]))
+				{
+					tweetedWords.remove(index);
+					removeIndex = boringWords.length;
+				}
+			}
+		}
 	}
 }
 
