@@ -2,6 +2,7 @@ package chat.model;
 
 import chat.controller.ChatbotController;
 import chat.controller.IOController;
+
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.Twitter;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CTECTwitter
 {
@@ -60,8 +62,24 @@ public class CTECTwitter
 		collectTweets(username);
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
+		
 		String [] boring = createIgnoredWordArray();
 		trimTheBoringWords(boring);
+		removeBlanks();
+		generateWordCount();
+		
+		ArrayList<Map.Entry<String, Integer>> sorted = sortHashMap();
+		
+		String mostCommonWord = sorted.get(0).getKey();
+		int maxWord = 0;
+		
+		maxWord = sorted.get(0).getValue();
+		mostCommon = "The most common word in " + username + "'s " + searchedTweets.size() + " tweets is " + 
+				mostCommonWord + ", and it was used " + maxWord + " times.\nThis is " + 
+				(DecimalFormat.getPercentInstance().format(((double) maxWord)/totalWordCount)) + 
+				" of total words: " + totalWordCount + 
+				" and is " + (DecimalFormat.getPercentInstance().format(((double) maxWord) / wordsAndCount.size())) + 
+				" of the unique words: " + wordsAndCount.size();
 		
 		return mostCommon;
 	}
